@@ -389,3 +389,17 @@ services:
         - ${DATA_PATH_HOST}/tomcat/webapps:/usr/local/tomcat/webapps
         - ${DATA_PATH_HOST}/tomcat/logs:/usr/local/tomcat/logs
       # restart: always
+
+### Docker-in-Docker ################################################
+    docker-in-docker:
+      image: docker:19.03-dind
+      environment:
+        DOCKER_TLS_SAN: DNS:docker-in-docker
+      privileged: true
+      volumes:
+        - ${APP_CODE_PATH_HOST}:${APP_CODE_PATH_CONTAINER}
+        - docker-in-docker:/certs/client
+      expose:
+        - 2375
+      networks:
+        - backend
