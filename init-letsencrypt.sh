@@ -77,4 +77,4 @@ docker-compose run --rm --entrypoint "\
 echo
 
 echo "### Reloading nginx ..."
-docker-compose exec laradock_nginx_1 nginx -s reload
+docker-compose exec nginx nginx -s reload
