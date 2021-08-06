@@ -8,8 +8,11 @@ Reference: https://pentacent.medium.com/nginx-and-lets-encrypt-with-docker-in-le
 2. Change domain name in init-letsencrypt.sh in line 8
 3. Config ssl in nginx config file. Using private key in folder /etc/letsencrypt
 
-Adding 
+**Adding 
+**
+```
 ssl_certificate /etc/letsencrypt/live/example.org/fullchain.pem;
 ssl_certificate_key /etc/letsencrypt/live/example.org/privkey.pem;
 include /etc/letsencrypt/options-ssl-nginx.conf;
 ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem;
+```
