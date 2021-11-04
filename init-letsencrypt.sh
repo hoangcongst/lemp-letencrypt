@@ -1,11 +1,14 @@
 #!/bin/bash
+echo "Type the domain, followed by [ENTER]:"
+
+read domain_input
 
 if ! [ -x "$(command -v docker-compose)" ]; then
   echo 'Error: docker-compose is not installed.' >&2
   exit 1
 fi
 
-domains=(mpottery.com www.mpottery.com)
+domains=($domain_input www.$domain_input)
 rsa_key_size=4096
 data_path="./data/certbot"
 email="" # Adding a valid address is strongly recommended
