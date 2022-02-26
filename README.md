@@ -6,6 +6,7 @@ Reference: https://pentacent.medium.com/nginx-and-lets-encrypt-with-docker-in-le
 #### How to use:
 1. ./init-letsencrypt.sh
 2. Config ssl in nginx config file. Using private key in folder /etc/letsencrypt
+3. Add crontab ```0 */12 * * * docker start laradock_certbot_1```
 
 **Adding into conf files**
 ```
